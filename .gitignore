@@ -11,3 +11,5 @@ node_modules
 /api/index.js.map
 demo/
 /app/styles
+*.log
+*.log*

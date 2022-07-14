@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  * {
+    cursor: url('/default.cur'), default;
+  }
+  a,
+  a *,
+  button,
+  button *,
+  .btn,
+  .btn *,
+  .prose .post-image {
+    cursor: url('/pointer.cur'), pointer !important;
+  }
+
+  html {
+    min-width: 360px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-black dark:text-white;
+    transition: background-color 1s linear, color 0.5s linear;
+    min-height: 100vh;
+  }
+
+  div,
+  p {
+    @apply break-all;
+  }
+  pre {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Remove Safari input shadow on mobile */
+  input[type='text'],
+  input[type='email'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  main a[target='_blank'],
+  main a[href]:not(:where(
+  /* exclude hash only links */
+  [href^="#"],
+  /* exclude relative links */
+  [href^="/"],
+  /* domains to exclude */
+  [href*="://willin.wang"],
+  /* subdomains to exclude */
+  [href*="://beta.willin.wang"],
+)):after {
+    /* content: ' ↗️ '; */
+    content: ' '
+      url(data:image/svg+xm;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAV0lEQVR4Xq2QwQ2AAAwC3cmd2Kk7sRP64CEJ9qOX8OPatMc/QKppnEPhTmJh23CLiwAqIw21CybKQ28qQi37WGFYBJcwfJQpP8LlEHKyZMF0IdmF13zlAjZ/6H4wb+mUAAAAAElFTkSuQmCC);
+  }
+
+  .prose .mermaid > svg {
+    @apply mx-auto my-2;
+  }
+  .prose .post-image {
+    @apply mx-auto my-2  max-h-[90vh];
+  }
+
+  /* .prose .article::first-letter {
+    float: left;
+    font-size: 8rem;
+    line-height: 1;
+    margin: 0 0.2em 0 0;
+    vertical-align: top;
+  } */
+}
+
+@layer components {
+  #background {
+    @apply fixed inset-0 saturate-150 z-[-1];
+    background: url('/images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: all 0.25s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  #background.dark {
+    @apply brightness-50 saturate-100;
+    transform: rotate(-3deg) scale(1.2);
+    /* scaleX(-1); */
+  }
+}
