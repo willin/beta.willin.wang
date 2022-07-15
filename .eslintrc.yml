@@ -1,0 +1,13 @@
+root: true
+extends:
+  - '@remix-run/eslint-config'
+  - '@remix-run/eslint-config/node'
+  # - plugin:@typescript-eslint/recommended-requiring-type-checking
+plugins:
+  - import
+parserOptions:
+  project: ./tsconfig.json
+  tsconfigRootDir: ./
+settings:
+  import/resolver:
+    typescript: {}
