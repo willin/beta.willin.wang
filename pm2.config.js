@@ -1,9 +1,14 @@
 module.exports = {
   apps: [
-    // {
-    //   name: 'Content',
-    //   script: 'npx ts-node ./scripts/content.ts'
-    // },
+    {
+      name: 'Content',
+      script: 'node --loader ts-node/esm content.ts',
+      cwd: './scripts',
+      watch: ['../content', '.'],
+      ignore_watch: ['node_modules'],
+      restart_delay: 1000,
+      autorestart: false
+    },
     {
       name: 'Prisma',
       script: 'prisma generate',
