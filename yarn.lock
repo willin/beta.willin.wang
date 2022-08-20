@@ -1540,6 +1540,11 @@
   dependencies:
     "@types/ms" "*"
 
+"@types/dlv@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/dlv/-/dlv-1.1.2.tgz#02d4fcc41c5f707753427867c64fdae543031fb9"
+  integrity sha512-OyiZ3jEKu7RtGO1yp9oOdK0cTwZ/10oE9PDJ6fyN3r9T5wkyOcvr6awdugjYdqF6KVO5eUvt7jx7rk2Eylufow==
+
 "@types/estree-jsx@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@types/estree-jsx/-/estree-jsx-0.0.1.tgz#c36d7a1afeb47a95a8ee0b7bc8bc705db38f919d"
@@ -1805,6 +1810,11 @@ abort-controller@^3.0.0:
   integrity sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==
   dependencies:
     event-target-shim "^5.0.0"
+
+accept-language-parser@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/accept-language-parser/-/accept-language-parser-1.5.0.tgz#8877c54040a8dcb59e0a07d9c1fde42298334791"
+  integrity sha512-QhyTbMLYo0BBGg1aWbeMG4ekWtds/31BrEU+DONOg/7ax23vxpL03Pb7/zBmha2v7vdD3AyzZVWBVGEZxKOXWw==
 
 accepts@~1.3.5, accepts@~1.3.8:
   version "1.3.8"
@@ -7373,6 +7383,15 @@ remark-rehype@^9.0.0:
     mdast-util-to-hast "^11.0.0"
     unified "^10.0.0"
 
+remix-i18n@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/remix-i18n/-/remix-i18n-0.2.0.tgz#8e8a313deb98003171a85b94704ee2cb8f1ed3d6"
+  integrity sha512-bTea/7ik3aryehn7mG0TMtlDEXeQCk5Dm6nuUv17RtVeJUsf4RGD1rirIxMJEeMl+ic3g8O1AKVI2WGscVxDCw==
+  dependencies:
+    "@types/dlv" "^1.1.2"
+    dlv "^1.1.3"
+    templite "^1.2.0"
+
 repeat-element@^1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/repeat-element/-/repeat-element-1.1.4.tgz#be681520847ab58c7568ac75fbfad28ed42d39e9"
@@ -8142,6 +8161,11 @@ temp@^0.8.4:
   integrity sha512-s0ZZzd0BzYv5tLSptZooSjK8oj6C+c19p7Vqta9+6NPOf7r+fxq0cJe6/oN4LTC79sy5NY8ucOJNgwsKCSbfqg==
   dependencies:
     rimraf "~2.6.2"
+
+templite@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/templite/-/templite-1.2.0.tgz#ac1781cfc46e3bed3b2c17297b3ce3b129d4a590"
+  integrity sha512-O9BpPXF44a9Pg84Be6mjzlrqOtbP2I/B5PNLWu5hb1n9UQ1GTLsjdMg1z5ROCkF6NFXsO5LQfRXEpgTGrZ7Q0Q==
 
 text-table@^0.2.0:
   version "0.2.0"

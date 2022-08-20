@@ -13,8 +13,10 @@
     "@remix-run/react": "^1.6.8",
     "@remix-run/vercel": "^1.6.8",
     "@vercel/node": "^2.4.4",
+    "accept-language-parser": "^1.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "remix-i18n": "^0.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.6.8",

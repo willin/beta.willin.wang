@@ -7,12 +7,13 @@ import {
   Scripts,
   ScrollRestoration
 } from '@remix-run/react';
+import { i18n } from '~/i18n';
 import tailwindStyles from '~/styles/global.css';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
-  viewport: 'width=device-width,initial-scale=1'
+  title: i18n.t('site.title'),
+  description: i18n.t('site.description')
 });
 
 export const links: LinksFunction = () => [
