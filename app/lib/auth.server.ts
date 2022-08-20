@@ -10,7 +10,30 @@ export type OidcResponse = {
   refresh_token: string;
 };
 
-export const LoginUrl = `${process.env.AUTHING_SSO_URL}/login?app_id=${process.env.AUTHING_APP_ID}`;
+const rnd = (seed) => ((seed * 9301 + 49297) % 233280) / 233280.0;
+const rand = (number) =>
+  Math.floor(rnd(new Date().getTime() * Math.random()) * number);
+
+export function randStr(len = 20, x = 'abcdefhijkmnprstwxyz2345678') {
+  const maxPos = x.length;
+  let pwd = '';
+  for (let i = 0; i < len; i += 1) {
+    pwd += x.charAt(rand(maxPos));
+  }
+  return pwd;
+}
+
+export const LoginUrl = (redirectUri: string) => {
+  const params = new URLSearchParams({
+    client_id: process.env.AUTHING_APP_ID,
+    state: redirectUri || randStr(),
+    scope:
+      'openid username email phone profile offline_access roles unionid external_id extended_fields',
+    redirect_uri: process.env.AUTHING_APP_CALLBACK,
+    response_type: 'code'
+  });
+  return `${process.env.AUTHING_SSO_URL}/oidc/auth?${params.toString()}`;
+};
 
 export const LogoutUrl = `${
   process.env.AUTHING_SSO_URL

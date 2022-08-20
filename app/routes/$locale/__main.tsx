@@ -10,6 +10,9 @@ export default function Page() {
         <li>
           <Link to='/en'>En</Link>
         </li>
+        <li>
+          <Link to='/login?redirect=/en'>Login</Link>
+        </li>
       </ul>
     </>
   );
