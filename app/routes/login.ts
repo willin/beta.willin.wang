@@ -1,7 +1,6 @@
-import { redirect } from '@remix-run/node';
+import { type LoaderFunction, redirect } from '@remix-run/node';
+import { LoginUrl } from '~/lib/auth.server';
 
-export const loader = async () => {
-  return redirect(
-    `${process.env.AUTHING_SSO_URL}/login?app_id=${process.env.AUTHING_APP_ID}`
-  );
+export const loader: LoaderFunction = async () => {
+  return redirect(LoginUrl);
 };

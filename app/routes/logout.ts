@@ -1,9 +1,16 @@
-import { redirect } from '@remix-run/node';
+import { type LoaderFunction, redirect } from '@remix-run/node';
+import { LogoutUrl } from '~/lib/auth.server';
+import { getSession, destroySession } from '~/services/session.server';
 
-export const loader = async () => {
-  return redirect(
-    `${process.env.AUTHING_SSO_URL}/logout?redirectUri=${encodeURIComponent(
-      process.env.HOMEPAGE || 'https://willin.wang'
-    )}`
-  );
+export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
+  if (url.search) {
+    return redirect(LogoutUrl);
+  }
+  const session = await getSession(request.headers.get('Cookie'));
+  return redirect(`${url.pathname}?redirect=true`, {
+    headers: {
+      'Set-Cookie': await destroySession(session)
+    }
+  });
 };
