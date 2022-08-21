@@ -13,6 +13,10 @@ export const dict: I18nDict = {
     projects: '开源项目',
     playground: '代码游乐场'
   },
+  tips: {
+    toggleLocale: '切换语言',
+    toggleTheme: '切换主题'
+  },
   toast: {
     loading: '加载中...',
     refresh: '手动刷新'

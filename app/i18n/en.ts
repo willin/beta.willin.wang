@@ -13,7 +13,12 @@ export const dict: I18nDict = {
     projects: 'Projects',
     playground: 'Playground'
   },
+  tips: {
+    toggleLocale: 'Change Language',
+    toggleTheme: 'Change Theme'
+  },
   toast: {
-    loading: 'Loading...'
+    loading: 'Loading...',
+    refresh: 'Refresh'
   }
 };

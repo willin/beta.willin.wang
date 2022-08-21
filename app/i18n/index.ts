@@ -8,8 +8,14 @@ export const config: RemixI18nOptions = {
 };
 
 export const languages = {
-  zh: '简体中文',
-  en: 'English'
+  zh: {
+    flag: '🇨🇳',
+    name: '简体中文'
+  },
+  en: {
+    flag: '🇺🇸',
+    name: 'English'
+  }
 };
 
 export const i18n = new RemixI18n(config);

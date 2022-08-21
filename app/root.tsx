@@ -1,39 +1,29 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration
-} from '@remix-run/react';
-import { i18n } from '~/i18n';
+import { json, type LinksFunction, type LoaderFunction } from '@remix-run/node';
+import { Outlet, useLoaderData } from '@remix-run/react';
 import tailwindStyles from '~/styles/global.css';
-
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: i18n.t('site.title'),
-  description: i18n.t('site.description')
-});
+import { ThemeProvider } from './components/atom/use-theme';
+import { getSession } from './services/session.server';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindStyles },
   { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
 ];
 
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await getSession(request.headers.get('Cookie'));
+  const theme = (session.get('theme') as string) || 'retro';
+  return json({ theme });
+};
+
+export type RootLoaderData = {
+  theme: string;
+};
+
 export default function App() {
+  const { theme } = useLoaderData<RootLoaderData>();
   return (
-    <html lang='en'>
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
+    <ThemeProvider specifiedTheme={theme}>
+      <Outlet />
+    </ThemeProvider>
   );
 }
