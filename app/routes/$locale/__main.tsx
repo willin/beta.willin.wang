@@ -1,6 +1,4 @@
 import { type MetaFunction } from '@remix-run/node';
-import { ToggleLocale } from '~/components/atom/toggle-locale';
-import { ToggleTheme } from '~/components/atom/toggle-theme';
 import { Demo } from '~/components/demo';
 import { Document } from '~/components/document';
 import { i18n } from '~/i18n';
@@ -16,12 +14,6 @@ export default function Page() {
   return (
     <Document>
       <Demo />
-
-      <div style={{ marginLeft: '400px' }}>
-        <ToggleLocale />
-
-        <ToggleTheme />
-      </div>
     </Document>
   );
 }

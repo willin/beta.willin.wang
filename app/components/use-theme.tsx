@@ -119,6 +119,20 @@ export const themes = [
   }
 ];
 
+export const datkThemes = [
+  'dark',
+  'synthwave',
+  'halloween',
+  'forest',
+  'aqua',
+  'black',
+  'luxury',
+  'dracula',
+  'business',
+  'night',
+  'coffee'
+];
+
 type ThemeContextType = [
   string | null,
   React.Dispatch<React.SetStateAction<string | null>>
@@ -147,7 +161,7 @@ export function ThemeProvider({
     }
 
     if (typeof window !== 'object') return null;
-    return window.matchMedia(prefersLightMQ).matches ? 'cupcake' : 'retro';
+    return window.matchMedia(prefersLightMQ).matches ? 'cupcake' : 'dark';
   });
 
   const mountRun = React.useRef(false);
@@ -169,7 +183,7 @@ export function ThemeProvider({
   useEffect(() => {
     const mediaQuery = window.matchMedia(prefersLightMQ);
     const handleChange = () => {
-      setTheme(mediaQuery.matches ? 'cupcake' : 'retro');
+      setTheme(mediaQuery.matches ? 'cupcake' : 'dark');
     };
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);

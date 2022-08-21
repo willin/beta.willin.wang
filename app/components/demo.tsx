@@ -6,6 +6,23 @@ export function Demo() {
   return (
     <div>
       <h1>{t('site.title')}</h1>
+
+      <div className='dropdown dropdown-hover'>
+        <label tabIndex='0' className='btn m-1'>
+          Hover
+        </label>
+        <ul
+          tabIndex='0'
+          className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <a>Item 2</a>
+          </li>
+        </ul>
+      </div>
+
       <div className='border-base-content/20 hover:border-base-content/40 outline-base-content overflow-hidden rounded-lg border outline outline-2 outline-offset-2'>
         <div className='bg-base-100 text-base-content w-full cursor-pointer font-sans'>
           <div className='grid grid-cols-5 grid-rows-3'>

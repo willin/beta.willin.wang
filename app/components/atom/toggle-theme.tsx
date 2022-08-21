@@ -1,6 +1,6 @@
 import { useI18n } from 'remix-i18n';
 import clsx from 'classnames';
-import { themes, useTheme } from './use-theme';
+import { themes, useTheme } from '~/components/use-theme';
 
 export function ToggleTheme() {
   const [currentTheme, setTheme] = useTheme();
@@ -17,7 +17,7 @@ export function ToggleTheme() {
 
   return (
     <div title={t('tips.toggleTheme')} className={`dropdown dropdown-end`}>
-      <div className={`btn gap-1 normal-case btn-ghost`}>
+      <div tabIndex='0' className={`btn gap-1 normal-case btn-ghost`}>
         <svg
           width='20'
           height='20'
@@ -43,7 +43,8 @@ export function ToggleTheme() {
         </svg>
       </div>
       <div
-        className={`dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-16`}>
+        tabIndex='0'
+        className={`dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-12`}>
         <div className='grid grid-cols-1 gap-3 p-3'>
           {themes.map((theme) => (
             <div

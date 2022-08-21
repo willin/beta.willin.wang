@@ -1,3 +1,4 @@
+import clsx from 'classnames';
 import {
   Links,
   LiveReload,
@@ -9,7 +10,9 @@ import {
 import React, { useEffect } from 'react';
 import { useI18n } from 'remix-i18n';
 import { getLocale } from '~/i18n';
-import { useTheme } from './atom/use-theme';
+import { datkThemes, useTheme } from '~/components/use-theme';
+import { Header } from './header';
+import { Footer } from './footer';
 
 export function Document({ children }: { children: React.ReactNode }) {
   const i18n = useI18n();
@@ -30,7 +33,16 @@ export function Document({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div
+          id='background'
+          className={clsx({
+            dark: datkThemes.includes(theme)
+          })}></div>
+        <Header />
+        <div className='pt-20' style={{ minHeight: 'calc(100vh - 75px)' }}>
+          {children}
+        </div>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

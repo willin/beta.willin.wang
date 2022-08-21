@@ -16,7 +16,7 @@ export function ToggleLocale() {
 
   return (
     <div title={t('tips.toggleLocale')} className='dropdown dropdown-end'>
-      <div className='btn btn-ghost gap-1 normal-case'>
+      <div tabIndex='0' className='btn btn-ghost gap-1 normal-case'>
         <svg
           className='inline-block h-4 w-4 fill-current md:h-5 md:w-5'
           xmlns='http://www.w3.org/2000/svg'
@@ -36,16 +36,18 @@ export function ToggleLocale() {
           <path d='M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z' />
         </svg>
       </div>
-      <div className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px mt-16 w-52 overflow-y-auto shadow-2xl'>
+      <div
+        tabIndex='0'
+        className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px mt-12 w-52 overflow-y-auto shadow-2xl'>
         <ul className='menu menu-compact gap-1 p-3'>
           {Object.entries(languages).map(([locale, item]) => (
             <li key={locale}>
               <button
-                className={clsx('flex justify-between', {
+                className={clsx('flex justify-between p-0', {
                   active: locale === getLocale(location.pathname)
                 })}>
-                <a href={`/${locale}${path}`} className='flex flex-1 '>
-                  {item.flag}
+                <a href={`/${locale}${path}`} className='flex flex-1 p-2'>
+                  {item.flag} {'  '}
                   {item.name}
                 </a>
               </button>

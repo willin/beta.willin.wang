@@ -4,7 +4,7 @@ import {
   type ActionFunction,
   json
 } from '@remix-run/node';
-import { themes } from '~/components/atom/use-theme';
+import { themes } from '~/components/use-theme';
 import { commitSession, getSession } from '~/services/session.server';
 
 export const action: ActionFunction = async ({ request }) => {
@@ -15,7 +15,7 @@ export const action: ActionFunction = async ({ request }) => {
       const data: { theme: string } = await request.json();
       const theme = themes.map((x) => x.id).includes(data.theme)
         ? data.theme
-        : 'retro';
+        : 'dark';
       session.set('theme', theme);
       return json(
         { success: true },
