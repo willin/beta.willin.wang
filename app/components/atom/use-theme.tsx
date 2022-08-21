@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export const themes = [
   {
@@ -135,7 +135,7 @@ export function ThemeProvider({
   themeAction = '/api/theme',
   specifiedTheme
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   themeAction: string;
   specifiedTheme: string | null;
 }) {
@@ -164,7 +164,7 @@ export function ThemeProvider({
       method: 'POST',
       body: JSON.stringify({ theme })
     });
-  }, [theme]);
+  }, [theme, themeAction]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(prefersLightMQ);

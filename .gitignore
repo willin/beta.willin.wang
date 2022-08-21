@@ -11,3 +11,7 @@ node_modules
 /api/index.js
 /api/index.js.map
 /app/styles
+*.log
+*.log*
+/demo
+.DS_Store

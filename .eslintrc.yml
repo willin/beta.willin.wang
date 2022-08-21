@@ -2,9 +2,17 @@ root: true
 extends:
   - '@remix-run/eslint-config'
   - '@remix-run/eslint-config/node'
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - plugin:jsx-a11y/recommended
+  - eslint:recommended
+  - prettier
   # - plugin:@typescript-eslint/recommended-requiring-type-checking
 plugins:
   - import
+rules:
+  react/react-in-jsx-scope: 0
+  react/jsx-no-target-blank: 0
 parserOptions:
   project: ./tsconfig.json
   tsconfigRootDir: ./

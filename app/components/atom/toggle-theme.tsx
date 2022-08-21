@@ -17,7 +17,7 @@ export function ToggleTheme() {
 
   return (
     <div title={t('tips.toggleTheme')} className={`dropdown dropdown-end`}>
-      <div tabIndex='0' className={`btn gap-1 normal-case btn-ghost`}>
+      <div className={`btn gap-1 normal-case btn-ghost`}>
         <svg
           width='20'
           height='20'
@@ -44,10 +44,11 @@ export function ToggleTheme() {
       </div>
       <div
         className={`dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-16`}>
-        <div className='grid grid-cols-1 gap-3 p-3' tabIndex='0'>
+        <div className='grid grid-cols-1 gap-3 p-3'>
           {themes.map((theme) => (
             <div
               key={theme.id}
+              aria-hidden='true'
               onClick={onThemeClicked.bind(this, theme.id)}
               className={clsx(
                 'outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2',

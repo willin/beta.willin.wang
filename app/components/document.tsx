@@ -6,12 +6,12 @@ import {
   ScrollRestoration,
   useLocation
 } from '@remix-run/react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useI18n } from 'remix-i18n';
 import { getLocale } from '~/i18n';
 import { useTheme } from './atom/use-theme';
 
-export function Document({ children }) {
+export function Document({ children }: { children: React.ReactNode }) {
   const i18n = useI18n();
   const [theme] = useTheme();
 
@@ -21,7 +21,7 @@ export function Document({ children }) {
     if (locale !== i18n.locale()) {
       i18n.locale(locale);
     }
-  }, [location]);
+  }, [location, i18n]);
 
   return (
     <html lang={i18n.locale()} data-theme={theme}>
