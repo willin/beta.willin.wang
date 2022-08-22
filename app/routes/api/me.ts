@@ -3,7 +3,7 @@ import { getSession } from '~/services/session.server';
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request.headers.get('Cookie'));
-  if (!session.has('user')) {
+  if (!session.has('oidc')) {
     return json({ status: 0 });
   }
   const oidcToken = session.get('oidc');

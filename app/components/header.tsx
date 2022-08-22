@@ -25,8 +25,8 @@ export function Header() {
           </div>
         </div>
         <div className='navbar-end'>
-          <ToggleTheme />
           <ToggleLocale />
+          <ToggleTheme />
         </div>
       </div>
     </header>

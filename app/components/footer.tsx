@@ -1,12 +1,12 @@
-import { useMatches } from '@remix-run/react';
-import clsx from 'classnames';
+// import { useMatches } from '@remix-run/react';
+// import clsx from 'classnames';
 import { useI18n } from 'remix-i18n';
 import { LocaleLink } from './atom/locale-link';
 import { Github, CSDN, Juejin, SegmentFault, WillinLogo, Zhihu } from './svg';
 
 export function Footer() {
   const { t } = useI18n();
-  const matches = useMatches();
+  // const matches = useMatches();
 
   return (
     <footer className='p-4 sm:p-6 bg-base-200 text-base-content opacity-90'>
