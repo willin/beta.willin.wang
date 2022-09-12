@@ -15,3 +15,4 @@ node_modules
 *.log*
 /demo
 .DS_Store
+.sanity/
