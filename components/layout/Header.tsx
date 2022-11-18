@@ -4,7 +4,7 @@ import LocaleLink from '@components/common/LocaleLink';
 import SwitchLocale from '@components/atom/switch-locale';
 
 export default function Header({ mini = false }) {
-  const other = (i18n.options.supportedLngs as string[]).find((lng) => lng !== i18n.language);
+  const other = (i18n.options.supportedLngs as string[]).find((lng) => lng !== i18n.language) || '';
 
   return (
     <header className={`${mini ? 'p-2' : 'p-10'} bg-slate-900 text-white`}>
