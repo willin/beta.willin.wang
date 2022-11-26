@@ -1,8 +1,12 @@
+'use client';
 import clsx from 'classnames';
-import { t, languages } from '@/i18n';
+import { languages } from '@/i18n';
 import Link from 'next/link';
+import { useI18n } from '../../i18n/hook';
 
 export function LanguageChange() {
+  const { t } = useI18n();
+
   return (
     <div title={t('components.language_change')} className='dropdown dropdown-end'>
       <div tabIndex={0} className='btn btn-ghost gap-1 normal-case'>

@@ -1,6 +1,5 @@
-// import i18n from 'i18next';
+import { NextI18n } from './next-i18n';
 
-// https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e8-1f1f3.svg
 export const languages = {
   'zh-CN': { name: '简体中文', flag: '🇨🇳', unicode: '1f1e8-1f1f3' },
   'zh-TW': { name: '正體中文', flag: '🇹🇼', unicode: '1f1f9-1f1fc' },
@@ -9,45 +8,16 @@ export const languages = {
   ja: { name: '日本語', flag: '🇯🇵', unicode: '1f1ef-1f1f5' }
 };
 
-const locales = Object.keys(languages);
+export const supportedLanguages = Object.keys(languages);
+export const fallbackLng = 'zh-CN';
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-// i18n.init({
-//   fallbackLng: 'zh-CN',
-//   supportedLngs: locales,
-//   fallbackNS: 'common',
-//   ns: ['common'],
-//   // backend: {
-//   //   loadPath: './i18n/{{lng}}/{{ns}}.json'
-//   // },
-//   // debug: process.env.NODE_ENV === "development",
-//   // To load sync
-//   initImmediate: false
-// });
-
-// locales.forEach((locale) => {
-//   i18n.addResources(locale, 'common', require(`./${locale}/common.json`));
-// });
-
-// export default i18n;
-
-const i18n = {
-  options: {
-    fallbackLng: 'zh-CN',
-    supportedLngs: locales,
-    fallbackNS: 'common',
-    ns: ['common'],
-    // backend: {
-    //   loadPath: './i18n/{{lng}}/{{ns}}.json'
-    // },
-    // debug: process.env.NODE_ENV === "development",
-    // To load sync
-    initImmediate: false
-  }
-};
+const i18n = new NextI18n({
+  supportedLanguages,
+  fallbackLng
+});
 
 export default i18n;
 
-export function t(key: string) {
-  return key;
-}
+export { i18n };
+export { I18nProvider } from './provider';
+export { useI18n } from './hook';

@@ -1,18 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import i18n from './i18n';
+import { supportedLanguages, fallbackLng } from './i18n';
 
 export function middleware(request: NextRequest) {
-  const locales = i18n.options.supportedLngs as string[];
-  const defaultLang = (i18n.options.fallbackLng as string[])[0];
+  const locales = supportedLanguages;
+  const defaultLang = fallbackLng;
   const { headers, nextUrl } = request;
 
   // Exclude statics - add your static folders
-  const shouldCheckLocale =
-    !nextUrl.pathname.startsWith('/_next') &&
-    !nextUrl.pathname.startsWith('/favicon') &&
-    !nextUrl.pathname.startsWith('/images') &&
-    !nextUrl.pathname.endsWith('.cur');
+  const shouldCheckLocale = !nextUrl.pathname.startsWith('/_next') && !nextUrl.pathname.startsWith('/images') && !nextUrl.pathname.endsWith('.cur');
 
   const reqLocale = nextUrl.pathname.split('/')[1];
   const noValidLocale = !locales.includes(reqLocale);
@@ -35,5 +31,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/:path*']
+  matcher: ['/((?!api|_next|images|favicon).*)']
 };

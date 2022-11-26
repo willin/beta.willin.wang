@@ -1,5 +1,6 @@
+'use client';
 import clsx from 'classnames';
-import { t } from '@/i18n';
+import { useI18n } from '@/i18n';
 // import { useTheme } from 'next-themes';
 
 export const themes = [
@@ -124,6 +125,7 @@ export const themes = [
 export const darkThemes = ['dark', 'synthwave', 'halloween', 'forest', 'black', 'luxury', 'dracula', 'business', 'night', 'coffee'];
 
 export function ThemeChange() {
+  const { t } = useI18n();
   // const { currentTheme } = useTheme();
 
   return (
@@ -160,7 +162,7 @@ export function ThemeChange() {
           {themes.map((theme) => (
             <div
               key={theme.id}
-              className={clsx('outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2', {
+              className={clsx('outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2 hover:outline', {
                 outline: theme.id === 'currentTheme'
               })}>
               <div data-theme={theme.id} className='bg-base-100 text-base-content w-full cursor-pointer font-sans'>
