@@ -7,8 +7,7 @@
 //   return data;
 // }
 
-export default async function Page(args) {
-  console.log(args);
+export default async function Page() {
   return (
     <div>
       <h1>Hello</h1>

@@ -4,7 +4,7 @@
 //   return await getContentsStaticParams(ContentType.SNIPPET);
 // }
 
-export default async function Pages(args) {
+export default async function Snippets() {
   return (
     <div>
       <h1>Hello</h1>

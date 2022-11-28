@@ -5,7 +5,6 @@ import { Bootstrap } from './bootstrap';
 import { Providers } from './providers';
 
 export const revalidate = 600;
-export const runtime = 'experimental-edge';
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { locale: string } }) {
   const { locale = 'zh-CN' } = params || {};

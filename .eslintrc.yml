@@ -11,6 +11,7 @@ parserOptions:
     - .mjs
 rules:
   '@typescript-eslint/no-unsafe-assignment': 0
+  '@typescript-eslint/require-await': 1
   jsx-a11y/no-noninteractive-tabindex: 0
   jsx-a11y/anchor-is-valid:
     - error
