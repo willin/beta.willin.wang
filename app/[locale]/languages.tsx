@@ -1,11 +1,14 @@
 'use client';
 import clsx from 'classnames';
-import { languages } from '@/i18n';
 import Link from 'next/link';
-import { useI18n } from '../../i18n/hook';
+import { usePathname } from 'next/navigation';
+import { languages, fallbackLng, supportedLanguages, useI18n } from '@/i18n';
+
+const reg = new RegExp(supportedLanguages.map((x) => `/${x}`).join('|'));
 
 export function LanguageChange() {
   const { t } = useI18n();
+  const pathname = usePathname();
 
   return (
     <div title={t('components.language_change')} className='dropdown dropdown-end'>
@@ -29,7 +32,7 @@ export function LanguageChange() {
           {Object.entries(languages).map(([key, { name, flag, unicode }]) => (
             <li key={key}>
               <Link
-                href={`/${key}`}
+                href={`${key === fallbackLng ? '' : `/${key}`}${pathname?.replace(reg, '') || '/'}`}
                 className={clsx('flex btn-ghost', {
                   // active: i18n.language === key
                 })}>
