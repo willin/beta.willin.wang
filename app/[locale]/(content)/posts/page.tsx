@@ -14,7 +14,7 @@ export default async function PostPage1() {
       <div>UA: {ua}</div>
       <div>Country: {country}</div>
       <div>Region: {region}</div>
-      <pre>{JSON.stringify(headersList.entries(), null, 2)}</pre>
+      <pre>{JSON.stringify(Array.from(headersList.entries()), null, 2)}</pre>
     </div>
   );
 }
