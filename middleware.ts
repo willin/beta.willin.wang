@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const { headers, nextUrl } = request;
 
   // Exclude statics - add your static folders
-  const shouldCheckLocale = !nextUrl.pathname.startsWith('/_next') && !nextUrl.pathname.endsWith('.cur') && !nextUrl.pathname.endsWith('.txt');
+  const shouldCheckLocale = !nextUrl.pathname.startsWith('/_next') && !nextUrl.pathname.includes('.');
 
   const reqLocale = nextUrl.pathname.split('/')[1];
   const noValidLocale = !locales.includes(reqLocale);
@@ -21,8 +21,6 @@ export function middleware(request: NextRequest) {
 
     const validLocale = locales.includes(detected) ? detected : defaultLang;
 
-    nextUrl.pathname = `${nextUrl.pathname}`;
-    console.log(`/${validLocale}${nextUrl.pathname}`, request.url);
     return NextResponse.rewrite(new URL(`/${validLocale}${nextUrl.pathname}`, request.url));
   }
 
