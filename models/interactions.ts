@@ -12,17 +12,21 @@ export type Interactions = {
 export const getContentViews = cache(async (slugs: string[]) => {
   const directus = await getDirectusClient();
   const { data } = await directus.items('interactions').readByQuery({
-    slug: {
-      _in: slugs
+    filter: {
+      slug: {
+        _in: slugs
+      }
     }
   });
   return data;
 });
 
-export const contentInteract = (slug: string, type: 'like' | 'view') => {
+export const contentInteract = async (slug: string, type: 'like' | 'view') => {
   const directus = await getDirectusClient();
   const { data } = await directus.items('interactions').readByQuery({
-    slug
+    filter: {
+      slug
+    }
   });
   const { id, likes = 0, views = 0 } = data?.[0] as Interactions;
   if (id) {
