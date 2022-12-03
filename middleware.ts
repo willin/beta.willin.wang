@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const { headers, nextUrl } = request;
 
   // Exclude statics - add your static folders
-  const shouldCheckLocale = !nextUrl.pathname.startsWith('/_next') && !nextUrl.pathname.includes('.');
+  const shouldCheckLocale = !nextUrl.pathname.startsWith('/_next') && !nextUrl.pathname.includes('index') && !nextUrl.pathname.includes('.');
 
   const reqLocale = nextUrl.pathname.split('/')[1];
   const noValidLocale = !locales.includes(reqLocale);
