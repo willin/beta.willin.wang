@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 export function I18nClientProvider({ children, locale }: { children: React.ReactNode; locale: string }) {
   useEffect(() => {
+    console.log(locale, i18n.locale());
     if (i18n.locale() !== locale) {
       i18n.locale(locale);
     }
