@@ -21,6 +21,7 @@ export function middleware(request: NextRequest) {
 
     const validLocale = locales.includes(detected) ? detected : defaultLang;
 
+    console.log(`/${validLocale}${nextUrl.pathname}`, request.url);
     return NextResponse.rewrite(new URL(`/${validLocale}${nextUrl.pathname}`, request.url));
   }
 
