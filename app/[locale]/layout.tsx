@@ -3,15 +3,17 @@ import clsx from 'classnames';
 import { Bootstrap } from './bootstrap';
 // import { darkThemes } from './themes';
 import { I18nClientProvider } from './providers';
+import { fallbackLng, supportedLanguages } from '@/i18n';
 
 export const revalidate = 600;
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { locale: string } }) {
   const { locale = 'zh-CN' } = params || {};
+  const lang = supportedLanguages.includes(locale) ? locale : fallbackLng;
 
   return (
-    <I18nClientProvider locale={locale}>
-      <html lang={locale}>
+    <I18nClientProvider locale={lang}>
+      <html lang={lang}>
         <head />
         <body>
           <div
