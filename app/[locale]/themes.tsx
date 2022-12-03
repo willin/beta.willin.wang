@@ -2,15 +2,15 @@
 import clsx from 'classnames';
 import { useI18n } from '@/i18n';
 import { themes } from '@/lib/config';
-import { useTheme } from '@wits/next-themes';
+// import { useTheme } from '@wits/next-themes';
 
 export function ThemeChange() {
   const { t } = useI18n();
-  const { currentTheme, setTheme } = useTheme();
+  // const { currentTheme, setTheme } = useTheme();
 
   return (
     <div title={t('components.theme_change')} className='dropdown dropdown-end'>
-      <div>The current theme is: {currentTheme}</div>
+      {/* <div>The current theme is: {currentTheme}</div> */}
       <div tabIndex={0} className='btn gap-1 normal-case btn-ghost'>
         <svg
           width='20'
@@ -44,9 +44,9 @@ export function ThemeChange() {
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
             <div
               key={theme.id}
-              onClick={() => setTheme(theme.id)}
+              // onClick={() => setTheme(theme.id)}
               className={clsx('outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2 hover:outline', {
-                outline: theme.id === currentTheme
+                outline: theme.id === 'currentTheme'
               })}>
               <div data-theme={theme.id} className='bg-base-100 text-base-content w-full cursor-pointer font-sans'>
                 <div className='grid grid-cols-5 grid-rows-3'>

@@ -16,6 +16,11 @@ const i18n = new NextI18n({
   fallbackLng
 });
 
+supportedLanguages.forEach((locale) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  i18n.set(locale, require(`./${locale}/common.json`));
+});
+
 export default i18n;
 
 export { i18n };
