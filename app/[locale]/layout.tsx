@@ -2,7 +2,7 @@ import '../../styles/globals.css';
 import clsx from 'classnames';
 import { Bootstrap } from './bootstrap';
 // import { darkThemes } from './themes';
-import { Providers } from './providers';
+import { I18nClientProvider } from './providers';
 
 export const revalidate = 600;
 
@@ -10,7 +10,7 @@ export default function RootLayout({ children, params }: { children: React.React
   const { locale = 'zh-CN' } = params || {};
 
   return (
-    <Providers locale={locale}>
+    <I18nClientProvider locale={locale}>
       <html lang={locale}>
         <head />
         <body>
@@ -26,6 +26,6 @@ export default function RootLayout({ children, params }: { children: React.React
           <Bootstrap />
         </body>
       </html>
-    </Providers>
+    </I18nClientProvider>
   );
 }

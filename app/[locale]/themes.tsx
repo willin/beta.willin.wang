@@ -1,135 +1,16 @@
 'use client';
 import clsx from 'classnames';
 import { useI18n } from '@/i18n';
-// import { useTheme } from 'next-themes';
-
-export const themes = [
-  {
-    name: '🌝  light',
-    id: 'light'
-  },
-  {
-    name: '🌚  dark',
-    id: 'dark'
-  },
-  {
-    name: '🧁  cupcake',
-    id: 'cupcake'
-  },
-  {
-    name: '🐝  bumblebee',
-    id: 'bumblebee'
-  },
-  {
-    name: '✳️  Emerald',
-    id: 'emerald'
-  },
-  {
-    name: '🏢  Corporate',
-    id: 'corporate'
-  },
-  {
-    name: '🌃  synthwave',
-    id: 'synthwave'
-  },
-  {
-    name: '👴  retro',
-    id: 'retro'
-  },
-  {
-    name: '🤖  cyberpunk',
-    id: 'cyberpunk'
-  },
-  {
-    name: '🌸  valentine',
-    id: 'valentine'
-  },
-  {
-    name: '🎃  halloween',
-    id: 'halloween'
-  },
-  {
-    name: '🌷  garden',
-    id: 'garden'
-  },
-  {
-    name: '🌲  forest',
-    id: 'forest'
-  },
-  {
-    name: '🐟  aqua',
-    id: 'aqua'
-  },
-  {
-    name: '👓  lofi',
-    id: 'lofi'
-  },
-  {
-    name: '🖍  pastel',
-    id: 'pastel'
-  },
-  {
-    name: '🧚‍♀️  fantasy',
-    id: 'fantasy'
-  },
-  {
-    name: '📝  Wireframe',
-    id: 'wireframe'
-  },
-  {
-    name: '🏴  black',
-    id: 'black'
-  },
-  {
-    name: '💎  luxury',
-    id: 'luxury'
-  },
-  {
-    name: '🧛‍♂️  dracula',
-    id: 'dracula'
-  },
-  {
-    name: '🖨  CMYK',
-    id: 'cmyk'
-  },
-  {
-    name: '🍁  Autumn',
-    id: 'autumn'
-  },
-  {
-    name: '💼  Business',
-    id: 'business'
-  },
-  {
-    name: '💊  Acid',
-    id: 'acid'
-  },
-  {
-    name: '🍋  Lemonade',
-    id: 'lemonade'
-  },
-  {
-    name: '🌙  Night',
-    id: 'night'
-  },
-  {
-    name: '☕️  Coffee',
-    id: 'coffee'
-  },
-  {
-    name: '❄️  Winter',
-    id: 'winter'
-  }
-];
-
-export const darkThemes = ['dark', 'synthwave', 'halloween', 'forest', 'black', 'luxury', 'dracula', 'business', 'night', 'coffee'];
+import { themes } from '@/lib/config';
+import { useTheme } from '@wits/next-themes';
 
 export function ThemeChange() {
   const { t } = useI18n();
-  // const { currentTheme } = useTheme();
+  const { currentTheme, setTheme } = useTheme();
 
   return (
     <div title={t('components.theme_change')} className='dropdown dropdown-end'>
+      <div>The current theme is: {currentTheme}</div>
       <div tabIndex={0} className='btn gap-1 normal-case btn-ghost'>
         <svg
           width='20'
@@ -160,10 +41,12 @@ export function ThemeChange() {
         className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-16'>
         <div className='grid grid-cols-1 gap-3 p-3'>
           {themes.map((theme) => (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
             <div
               key={theme.id}
+              onClick={() => setTheme(theme.id)}
               className={clsx('outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2 hover:outline', {
-                outline: theme.id === 'currentTheme'
+                outline: theme.id === currentTheme
               })}>
               <div data-theme={theme.id} className='bg-base-100 text-base-content w-full cursor-pointer font-sans'>
                 <div className='grid grid-cols-5 grid-rows-3'>

@@ -1,5 +1,5 @@
-import { cache } from 'react';
-import { getDirectusClient } from './directus';
+// import { cache } from 'react';
+// import { getDirectusClient } from './directus';
 
 /* eslint-disable no-unused-vars */
 export enum ContentType {
@@ -23,6 +23,8 @@ export type Contents = {
   locale: string;
   status: ContentStatus;
   body: string;
+  wordcouont: number;
+  readtime: number;
   date_created: string;
   date_updated: string;
 };
