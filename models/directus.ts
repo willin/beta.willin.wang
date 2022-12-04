@@ -1,10 +1,12 @@
 import { Directus } from '@directus/sdk';
 import { Contents } from './contents';
 import { Interactions } from './interactions';
+import { Tags } from './tags';
 
 type DataTypes = {
   contents: Contents;
   interactions: Interactions;
+  tags: Tags;
 };
 
 const directus = new Directus<DataTypes>(process.env.DIRECTUS_URL || '');

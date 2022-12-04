@@ -1,5 +1,6 @@
 // import { cache } from 'react';
 // import { getDirectusClient } from './directus';
+import { Tags } from './tags';
 
 /* eslint-disable no-unused-vars */
 export enum ContentType {
@@ -25,6 +26,7 @@ export type Contents = {
   body: string;
   wordcouont: number;
   readtime: number;
+  tags: Tags[];
   date_created: string;
   date_updated: string;
 };
