@@ -4,6 +4,7 @@ import { Bootstrap } from './bootstrap';
 // import { darkThemes } from './themes';
 import { I18nClientProvider } from './providers';
 import { fallbackLng, supportedLanguages } from '@/i18n';
+import { MainDrawer } from './header-drawer';
 
 export const revalidate = 600;
 
@@ -21,10 +22,11 @@ export default function RootLayout({ children, params }: { children: React.React
             className={clsx({
               dark: true //darkThemes.map((x) => x.toLowerCase()).includes(theme)
             })}></div>
-          {/* <Header /> */}
-          <div className='pt-20' style={{ minHeight: 'calc(100vh - 75px)' }}>
-            {children}
-          </div>
+          <MainDrawer locale={locale}>
+            <main className='pt-20' style={{ minHeight: 'calc(100vh - 75px)' }}>
+              {children}
+            </main>
+          </MainDrawer>
           <Bootstrap />
         </body>
       </html>

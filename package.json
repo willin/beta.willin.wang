@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
+    "server-only": "^0.0.1",
     "templite": "^1.2.0"
   },
   "devDependencies": {

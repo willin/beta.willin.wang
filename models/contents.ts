@@ -1,5 +1,6 @@
-// import { cache } from 'react';
-// import { getDirectusClient } from './directus';
+import { cache } from 'react';
+import 'server-only';
+import { getDirectusClient } from './directus';
 import { Tags } from './tags';
 
 /* eslint-disable no-unused-vars */
@@ -30,6 +31,29 @@ export type Contents = {
   date_created: string;
   date_updated: string;
 };
+
+export const preload = (locale: string) => {
+  void getPageLinks(locale);
+};
+
+export const getPageLinks = cache(async (locale: string) => {
+  const directus = await getDirectusClient();
+  const { data } = await directus.items('contents').readByQuery({
+    filter: {
+      type: {
+        _eq: ContentType.PAGE
+      },
+      locale: {
+        _eq: locale
+      },
+      status: {
+        _eq: ContentStatus.PUBLISHED
+      }
+    },
+    fields: ['slug', 'title']
+  });
+  return data;
+});
 
 // export const getContentsStaticParams = cache(async (type: ContentType) => {
 //   const directus = await getDirectusClient();
