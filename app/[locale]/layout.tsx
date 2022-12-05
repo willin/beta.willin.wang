@@ -22,7 +22,7 @@ export default function RootLayout({ children, params }: { children: React.React
             className={clsx({
               dark: true //darkThemes.map((x) => x.toLowerCase()).includes(theme)
             })}></div>
-          <MainDrawer locale={locale}>
+          <MainDrawer locale={lang}>
             <main className='pt-20' style={{ minHeight: 'calc(100vh - 75px)' }}>
               {children}
             </main>
