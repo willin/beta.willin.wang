@@ -1,12 +1,15 @@
 'use client';
-import clsx from 'classnames';
+import { themeChange } from 'theme-change';
+import { useEffect } from 'react';
 import { useI18n } from '@/i18n';
 import { themes } from '@/lib/config';
-// import { useTheme } from '@wits/next-themes';
 
 export function ThemeChange() {
   const { t } = useI18n();
-  // const { currentTheme, setTheme } = useTheme();
+  useEffect(() => {
+    themeChange(false);
+    // 👆 false parameter is required for react project
+  }, []);
 
   return (
     <div title={t('components.theme_change')} className='dropdown dropdown-end'>
@@ -44,10 +47,9 @@ export function ThemeChange() {
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
             <div
               key={theme.id}
-              // onClick={() => setTheme(theme.id)}
-              className={clsx('outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2 hover:outline', {
-                outline: theme.id === 'currentTheme'
-              })}>
+              className='outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2 hover:outline'
+              data-set-theme={theme.id}
+              data-act-class='outline'>
               <div data-theme={theme.id} className='bg-base-100 text-base-content w-full cursor-pointer font-sans'>
                 <div className='grid grid-cols-5 grid-rows-3'>
                   <div className='col-span-5 row-span-3 row-start-1 flex gap-1 py-3 px-4'>

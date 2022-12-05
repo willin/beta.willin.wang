@@ -6,7 +6,7 @@ import { ThemeChange } from './themes';
 export function MainHeader({ locale }: { locale: string }) {
   return (
     <header className='fixed w-full z-20 opacity-90 hover:opacity-100'>
-      <div className='w-full navbar bg-base-300'>
+      <div className='w-full navbar bg-base-100'>
         <div className='navbar-start'>
           <div className='flex-none lg:hidden'>
             <label htmlFor='my-drawer-3' className='btn btn-square btn-ghost'>

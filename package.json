@@ -24,7 +24,8 @@
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
     "server-only": "^0.0.1",
-    "templite": "^1.2.0"
+    "templite": "^1.2.0",
+    "theme-change": "^2.2.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.8",
