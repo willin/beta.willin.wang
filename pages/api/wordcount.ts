@@ -11,7 +11,7 @@ type Payload = {
   event: 'items.create' | 'items.update';
   key: number | string;
   keys: Array<number | string>;
-  payload: Record<string, unkown>;
+  payload: Record<string, unknown>;
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
