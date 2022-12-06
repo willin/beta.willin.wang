@@ -1,32 +1,28 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import readingTime from 'reading-time';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getDirectusClient } from '@/models/directus';
 
 type Data = {
-  name: string;
+  status: number;
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  console.log(req.body);
-  console.log(req.headers);
-  res.status(200).json({ name: 'John Doe' });
+type Payload = {
+  event: 'items.create' | 'items.update';
+  key: number | string;
+  keys: Array<number | string>;
+};
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  const payload: Payload = req.body;
+  const { event, key, keys } = payload;
+  const id = event === 'items.create' ? key : keys?.[0];
+  const directus = await getDirectusClient();
+  const content = await directus.items('contents').readOne(id);
+  const { words, minutes } = readingTime(content.body);
+  await directus.items('contents').updateOne(id, {
+    wordcouont: words,
+    readtime: minutes
+  });
+  res.status(200).json({ status: 1 });
 }
-// {
-//   event: 'items.create',
-//   accountability: {
-//     user: '9f1a1a7d-e9c8-479e-9a0c-86ddf5d753fb',
-//     role: '366e650d-8b41-4f9b-85b0-54e55cf218c2'
-//   },
-//   payload: { body: '1' },
-//   key: 5,
-//   collection: 'content'
-// }
-// {
-//   event: 'items.update',
-//   accountability: {
-//     user: '9f1a1a7d-e9c8-479e-9a0c-86ddf5d753fb',
-//     role: '366e650d-8b41-4f9b-85b0-54e55cf218c2'
-//   },
-//   payload: { body: '2' },
-//   keys: [ '5' ],
-//   collection: 'content'
-// }

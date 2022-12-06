@@ -20,7 +20,7 @@
   }
 
   html {
-    transition: background-color 0.5s linear, color 0.25s linear;
+    /* transition: background-color 0.5s linear, color 0.25s linear; */
     min-height: 100vh;
     user-select: none;
   }
