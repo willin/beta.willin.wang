@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import readingTime from 'reading-time';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getDirectusClient } from '@/models/directus';
+import { getContentById, updateContentById } from '@/models/contents';
 
 type Data = {
   status: number;
@@ -27,10 +27,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(201).json({ status: 0 });
   }
 
-  const directus = await getDirectusClient();
-  const content = await directus.items('contents').readOne(id);
+  const content = await getContentById(id);
   const { words, minutes } = readingTime(content?.body!);
-  await directus.items('contents').updateOne(id, {
+  await updateContentById(id, {
     wordcount: words,
     readtime: minutes
   });

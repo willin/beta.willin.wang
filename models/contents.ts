@@ -1,3 +1,4 @@
+import { fallbackLng } from '@/i18n';
 import { cache } from 'react';
 import 'server-only';
 import { getDirectusClient } from './directus';
@@ -65,3 +66,43 @@ export const getPageLinks = cache(async (locale: string) => {
 //   });
 //   return data;
 // });
+
+export const getContentBySlug = cache(async (slug: string, type: ContentType, locale: string): Promise<Contents> => {
+  const directus = await getDirectusClient();
+  const { data } = await directus.items('contents').readByQuery({
+    fields: ['*', 'tags.tags_id.*'],
+    filter: {
+      slug: {
+        _eq: slug
+      },
+      locale: {
+        _eq: locale
+      },
+      type: {
+        _eq: type
+      },
+      status: {
+        _eq: ContentStatus.PUBLISHED
+      }
+    }
+  });
+  if (data.length === 0 && locale !== fallbackLng) {
+    return getContentBySlug(slug, type, fallbackLng);
+  }
+  return data?.[0];
+});
+
+/**
+ * Just for API
+ */
+export const getContentById = cache(async (id: string) => {
+  const directus = await getDirectusClient();
+  const content = await directus.items('contents').readOne(id);
+  return content;
+});
+
+export const updateContentById = async (id: string, data: Partial<Contents>) => {
+  const directus = await getDirectusClient();
+  const content = await directus.items('contents').updateOne(id, data);
+  return content;
+};

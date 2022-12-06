@@ -2,7 +2,7 @@ import { I18nDemo } from './demo';
 import { LanguageChange } from './languages';
 import { ThemeChange } from './themes';
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className='p-10 text-center'>
       <I18nDemo />
