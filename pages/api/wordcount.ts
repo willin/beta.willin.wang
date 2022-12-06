@@ -14,6 +14,10 @@ type Payload = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  const token = req.headers['x-api-token'];
+  if (token !== process.env.X_API_TOKEN) {
+    return res.status(401).json({ status: 0 });
+  }
   const payload: Payload = req.body;
   const { event, key, keys } = payload;
   const id = event === 'items.create' ? key : keys?.[0];
