@@ -25,7 +25,7 @@ export type Contents = {
   locale: string;
   status: ContentStatus;
   body: string;
-  wordcouont: number;
+  wordcount: number;
   readtime: number;
   tags: Tags[];
   date_created: string;

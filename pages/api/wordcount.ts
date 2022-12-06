@@ -11,6 +11,7 @@ type Payload = {
   event: 'items.create' | 'items.update';
   key: number | string;
   keys: Array<number | string>;
+  payload: Record<string, unkown>;
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
@@ -21,11 +22,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const payload: Payload = req.body;
   const { event, key, keys } = payload;
   const id = event === 'items.create' ? key : keys?.[0];
+  if (!payload?.payload?.body) {
+    // avoid infinite loop
+    return res.status(201).json({ status: 0 });
+  }
+
   const directus = await getDirectusClient();
   const content = await directus.items('contents').readOne(id);
   const { words, minutes } = readingTime(content?.body!);
   await directus.items('contents').updateOne(id, {
-    wordcouont: words,
+    wordcount: words,
     readtime: minutes
   });
   res.status(200).json({ status: 1 });
