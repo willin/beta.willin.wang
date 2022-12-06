@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const id = event === 'items.create' ? key : keys?.[0];
   const directus = await getDirectusClient();
   const content = await directus.items('contents').readOne(id);
-  const { words, minutes } = readingTime(content.body);
+  const { words, minutes } = readingTime(content?.body!);
   await directus.items('contents').updateOne(id, {
     wordcouont: words,
     readtime: minutes

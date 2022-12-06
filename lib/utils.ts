@@ -21,5 +21,5 @@ export const debounce = <T = Function>(fn: T, ms?: number, immediate?: boolean):
     clearTimeout(timeoutId);
     timeoutId = setTimeout(next, ms);
     if (callNow) next();
-  };
+  } as any as T;
 };
