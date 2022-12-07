@@ -2,5 +2,10 @@
   "home": "主页",
   "page": "页面",
   "post": "文章",
-  "snippet": "代码游乐场"
+  "snippet": "代码游乐场",
+  "meta": {
+    "views": "阅读量： {{views}} ",
+    "wordcount": "文章字数： {{wordcount}}",
+    "readtime": "阅读时间： {{readtime}} 分钟"
+  }
 }
