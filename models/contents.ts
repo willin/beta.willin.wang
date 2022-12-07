@@ -28,7 +28,7 @@ export type Contents = {
   body: string;
   wordcount: number;
   readtime: number;
-  tags: Tags[];
+  tags: { tags_id: Tags }[];
   date_created: string;
   date_updated: string;
 };
@@ -86,23 +86,8 @@ export const getContentBySlug = cache(async (slug: string, type: ContentType, lo
       }
     }
   });
-  if (data.length === 0 && locale !== fallbackLng) {
+  if (data?.length === 0 && locale !== fallbackLng) {
     return getContentBySlug(slug, type, fallbackLng);
   }
-  return data?.[0];
+  return data?.[0] as any as Contents;
 });
-
-/**
- * Just for API
- */
-export const getContentById = cache(async (id: string) => {
-  const directus = await getDirectusClient();
-  const content = await directus.items('contents').readOne(id);
-  return content;
-});
-
-export const updateContentById = async (id: string, data: Partial<Contents>) => {
-  const directus = await getDirectusClient();
-  const content = await directus.items('contents').updateOne(id, data);
-  return content;
-};
