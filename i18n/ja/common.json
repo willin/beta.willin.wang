@@ -2,5 +2,15 @@
   "home": "ホームページ",
   "page": "ページ",
   "post": "投稿",
-  "snippet": "コードセグメント"
+  "snippet": "コードセグメント",
+  "status": {
+    "coding": "コーディング",
+    "online": "オンライン",
+    "offline": "オフライン"
+  },
+  "meta": {
+    "views": "ビュー: {{views}} ",
+    "wordcount": "単語数: {{wordcount}}",
+    "readtime": "読み取り時間: {{readtime}} 分"
+  }
 }

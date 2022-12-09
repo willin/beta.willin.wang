@@ -2,5 +2,15 @@
   "home": "首頁",
   "page": "頁",
   "post": "帖子",
-  "snippet": "程式碼段"
+  "snippet": "程式碼段",
+  "status": {
+    "coding": "寫程式中",
+    "online": "在線",
+    "offline": "離線"
+  },
+  "meta": {
+    "views": "閱讀量： {{views}} ",
+    "wordcount": "文章字數： {{wordcount}}",
+    "readtime": "閱讀時間： {{readtime}} 分鐘"
+  }
 }

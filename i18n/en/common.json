@@ -2,5 +2,15 @@
   "home": "Home",
   "page": "Pages",
   "post": "Posts",
-  "snippet": "Snippets"
+  "snippet": "Snippets",
+  "status": {
+    "coding": "Coding",
+    "online": "Online",
+    "offline": "Offline"
+  },
+  "meta": {
+    "views": "Views: {{views}} ",
+    "wordcount": "Wordcount: {{wordcount}}",
+    "readtime": "Reading time: {{readtime}} mins"
+  }
 }

@@ -23,8 +23,9 @@ export default function Page({ params: { slug, locale } }: { params: { locale: s
   return (
     <div>
       <h1>Hello</h1>
-      <pre>{JSON.stringify(content, null, 2)}</pre>
-      <Component />
+      <article className='card glass prose dark:prose-invert max-w-none p-6 mb-6 text-primary-content'>
+        <Component />
+      </article>
     </div>
   );
 }

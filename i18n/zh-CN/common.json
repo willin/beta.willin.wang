@@ -3,6 +3,11 @@
   "page": "页面",
   "post": "文章",
   "snippet": "代码游乐场",
+  "status": {
+    "coding": "写代码中",
+    "online": "在线",
+    "offline": "离线"
+  },
   "meta": {
     "views": "阅读量： {{views}} ",
     "wordcount": "文章字数： {{wordcount}}",

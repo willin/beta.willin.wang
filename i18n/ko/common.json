@@ -2,5 +2,15 @@
   "home": "홈페이지",
   "page": "페이지",
   "post": "포스트",
-  "snippet": "코드세그먼트"
+  "snippet": "코드세그먼트",
+  "status": {
+    "coding": "코딩",
+    "online": "온라인",
+    "offline": "오프라인"
+  },
+  "meta": {
+    "views": "조회수: {{views}} ",
+    "wordcount": "단어 수: {{wordcount}}",
+    "readtime": "읽는 시간: {{readtime}} 분"
+  }
 }
