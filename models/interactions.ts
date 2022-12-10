@@ -4,6 +4,7 @@ import { getDirectusClient } from './directus';
 export type Interactions = {
   id: string;
   slug: string;
+  type: string;
   likes: number;
   views: number;
   date_updated: string;
@@ -21,7 +22,7 @@ export const getContentViews = cache(async (slugs: string[]) => {
   return data;
 });
 
-export const contentInteract = async (slug: string, type: 'like' | 'view') => {
+export const contentInteract = async (slug: string, type: 'like' | 'view' = 'view') => {
   const directus = await getDirectusClient();
   const { data } = await directus.items('interactions').readByQuery({
     filter: {

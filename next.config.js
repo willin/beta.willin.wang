@@ -5,7 +5,7 @@ const nextConfig = {
     // runtime: 'experimental-edge', // 'node.js' (default) | 'experimental-edge'
     appDir: true,
     esmExternals: 'loose',
-    serverComponentsExternalPackages: ['esbuild', '@mdx-js/esbuild']
+    serverComponentsExternalPackages: ['esbuild', '@mdx-js/esbuild', 'shiki', '@code-hike/mdx', 'mdx-bundler']
   }
 };
 

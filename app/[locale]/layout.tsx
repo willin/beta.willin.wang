@@ -1,4 +1,5 @@
 import '../../styles/globals.css';
+import '@code-hike/mdx/dist/index.css';
 import { Bootstrap } from './bootstrap';
 import { I18nClientProvider } from './providers';
 import { fallbackLng, supportedLanguages } from '@/i18n';

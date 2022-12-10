@@ -1,13 +1,4 @@
-// import { getContentsStaticParams, ContentType } from '@/models/contents';
+import { ContentType } from '@/models/contents';
+import ContentPage from '@/ui/content-page';
 
-// export async function generateStaticParams() {
-//   return await getContentsStaticParams(ContentType.SNIPPET);
-// }
-
-export default async function Snippets() {
-  return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  );
-}
+export default ContentPage(ContentType.SNIPPET);

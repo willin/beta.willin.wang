@@ -1,13 +1,8 @@
-// import { getContentsStaticParams, ContentType } from '@/models/contents';
+import { ContentType } from '@/models/contents';
+import ContentPage from '@/ui/content-page';
 
-// export async function generateStaticParams() {
-//   return await getContentsStaticParams(ContentType.POST);
-// }
+export default ContentPage(ContentType.POST);
 
-export default async function PostDetail() {
-  return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  );
-}
+// export const config = {
+//   unstable_includeFiles: ['node_modules/.pnpm/**/shiki/**/*.json', 'node_modules/**/shiki/**/*.json']
+// };
