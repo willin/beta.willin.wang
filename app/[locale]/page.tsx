@@ -11,6 +11,7 @@ export default function Home() {
     <div className='text-center'>
       <OnlineStatus online={stats.online} coding={stats.coding} />
       <h1 className='py-2'>To be Willin is to be willing.</h1>
+      {/* @ts-ignore */}
       <Stats stats={stats} />
     </div>
   );

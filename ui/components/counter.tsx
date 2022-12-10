@@ -11,6 +11,7 @@ export function Counter({ from, to, placeholder = '0' }: { from?: number; to: nu
     const controls = animate<number>(from || 0, to, {
       duration: 1,
       onUpdate(value) {
+        // @ts-ignore
         node.textContent = formatNumber(parseInt(value, 10));
       }
     });
@@ -18,5 +19,6 @@ export function Counter({ from, to, placeholder = '0' }: { from?: number; to: nu
     return () => controls.stop();
   }, [from, to]);
 
+  // @ts-ignore
   return <span ref={nodeRef}>&nbsp;{placeholder}&nbsp;</span>;
 }

@@ -21,7 +21,7 @@ export function Stats({ stats }: { stats: Statistics }) {
         <div className='stat'>
           <div className='stat-title'>{t('stats.github_stars')}</div>
           <div className='stat-value'>
-            <Counter from={0} to={githubStars} />
+            <Counter from={0} to={githubStars as number} />
           </div>
         </div>
 

@@ -1,10 +1,5 @@
 import { getDirectusClient } from './directus';
 
-export type KV = {
-  name: string;
-  value: string | number | KV | KV[];
-};
-
 export type Statistics = {
   online: boolean;
   coding: boolean;
@@ -12,9 +7,9 @@ export type Statistics = {
   date_updated: string;
   github: number;
   npm: number;
-  wakatime: KV[];
-  programming: KV[];
-  contribution: KV[];
+  wakatime: Record<string, unknown>[];
+  programming: Record<string, unknown>[];
+  contribution: Record<string, unknown>[];
 };
 
 export async function getStats() {
