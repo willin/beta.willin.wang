@@ -1,16 +1,17 @@
 import { getStats } from '@/models/statistics';
-import { OnlineStatus } from './online-status';
+import { OnlineStatus } from '../../ui/home/online-status';
 import { use } from 'react';
+import { Stats } from '@/ui/home/stats';
 
 export default function Home() {
   const stats = use(getStats());
   if (!stats) return null;
 
   return (
-    <div className='p-10 text-center'>
-      <div className='flex justify-center flex-wrap'>
-        <OnlineStatus online={stats.online} coding={stats.coding} />
-      </div>
+    <div className='text-center'>
+      <OnlineStatus online={stats.online} coding={stats.coding} />
+      <h1 className='py-2'>To be Willin is to be willing.</h1>
+      <Stats stats={stats} />
     </div>
   );
 }
