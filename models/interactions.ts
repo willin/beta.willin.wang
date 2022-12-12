@@ -11,7 +11,6 @@ export enum InteractionType {
 export type Interactions = {
   id: string;
   slug: string;
-  type: string;
   likes: number;
   views: number;
   locale: string;
