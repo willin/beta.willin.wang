@@ -11,7 +11,9 @@
   "meta": {
     "views": "ビュー: {{views}} ",
     "wordcount": "単語数: {{wordcount}}",
-    "readtime": "読み取り時間: {{readtime}} 分"
+    "readtime": "読み取り時間: {{readtime}} 分",
+    "not_translated": "このページはまだ翻訳されていません。 翻訳を手伝ってください。",
+    "translate_link": "翻訳に貢献する"
   },
   "social": "Social Network",
   "stats": {

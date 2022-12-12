@@ -32,12 +32,12 @@ export const getContentViewsBatch = cache(async (slugs: string[], locale: string
   return data;
 });
 
-export const getContentViews = cache(async (slug: string, locale: string, type: ContentType | InteractionType) => {
+export const getContentViews = cache(async (slug: string, type: ContentType | InteractionType, locale: string) => {
   const data = await getContentViewsBatch([slug], locale, type);
   return data?.[0];
 });
 
-export const updateContentInteract = async (slug: string, locale: string, type: ContentType | InteractionType, interaction: 'like' | 'view' = 'view') => {
+export const updateContentInteract = async (slug: string, type: ContentType | InteractionType, locale: string, interaction: 'like' | 'view' = 'view') => {
   const directus = await getDirectusClient();
   const { data } = await directus.items('interactions').readByQuery({
     filter: {
@@ -46,7 +46,7 @@ export const updateContentInteract = async (slug: string, locale: string, type: 
       type
     }
   });
-  const { id, likes = 0, views = 0 } = data?.[0] as Interactions;
+  const { id, likes = 0, views = 0 } = (data?.[0] || {}) as Interactions;
   if (id) {
     await directus.items('interactions').updateOne(id, {
       likes: interaction === 'like' ? likes + 1 : likes,

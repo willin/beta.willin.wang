@@ -11,7 +11,9 @@
   "meta": {
     "views": "조회수: {{views}} ",
     "wordcount": "단어 수: {{wordcount}}",
-    "readtime": "읽는 시간: {{readtime}} 분"
+    "readtime": "읽는 시간: {{readtime}} 분",
+    "not_translated": "이 페이지는 아직 번역되지 않았습니다. 번역을 도와주세요.",
+    "translate_link": "번역 기여"
   },
   "social": "Social Network",
   "stats": {

@@ -3,6 +3,8 @@ import { ContentType, getContentBySlug } from '@/models/contents';
 import { mdx } from '@/lib/mdx';
 import { useMemo } from 'react';
 import { useMdxComponent } from './mdx-component';
+import { updateContentInteract } from '@/models/interactions';
+import { NotTranslated } from './components/not-translated';
 
 // import { getContentsStaticParams, ContentType } from '@/models/contents';
 // export async function generateStaticParams() {
@@ -18,6 +20,7 @@ export default function ContentPage(type: ContentType) {
     if (!content) return null;
     const code = use(mdx(content.body));
     if (!code) return null;
+    use(updateContentInteract(content.slug, content.type, locale, 'view'));
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const Component = useMemo(() => useMdxComponent(code), [code]);
@@ -29,6 +32,7 @@ export default function ContentPage(type: ContentType) {
             <h1 className='text-5xl text-primary' style={{ textShadow: '0 0 3px rgba(0,0,0,0.25)' }}>
               {content.title}
             </h1>
+            {content.locale !== locale && <NotTranslated />}
           </div>
           <article className='card glass prose max-w-none p-6 mb-6'>
             <Component />

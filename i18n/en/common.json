@@ -11,7 +11,9 @@
   "meta": {
     "views": "Views: {{views}} ",
     "wordcount": "Wordcount: {{wordcount}}",
-    "readtime": "Reading time: {{readtime}} mins"
+    "readtime": "Reading time: {{readtime}} mins",
+    "not_translated": "This page is not translated yet. Please help to translate it.",
+    "translate_link": "Contribute Translation"
   },
   "social": "Social Network",
   "stats": {

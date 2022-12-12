@@ -11,7 +11,9 @@
   "meta": {
     "views": "阅读量： {{views}} ",
     "wordcount": "文章字数： {{wordcount}}",
-    "readtime": "阅读时间： {{readtime}} 分钟"
+    "readtime": "阅读时间： {{readtime}} 分钟",
+    "not_translated": "This page is not translated yet. Please help to translate it.",
+    "translate_link": "Contribute Translation"
   },
   "social": "社交网络",
   "stats": {

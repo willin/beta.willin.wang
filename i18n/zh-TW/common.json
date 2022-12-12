@@ -11,6 +11,20 @@
   "meta": {
     "views": "閱讀量： {{views}} ",
     "wordcount": "文章字數： {{wordcount}}",
-    "readtime": "閱讀時間： {{readtime}} 分鐘"
+    "readtime": "閱讀時間： {{readtime}} 分鐘",
+    "not_translated": "此頁面尚未翻譯。 請幫忙翻譯一下。",
+    "translate_link": "貢獻翻譯"
+  },
+  "social": "社交網絡",
+  "stats": {
+    "github_followers": "Github 關注者",
+    "github_stars": "Github Stars",
+    "npm_downloads": "NPM 下載",
+    "github_prs": "Github PRs",
+    "github_commits": "Github 提交",
+    "github_contributes": "參與開源項目",
+    "language": "語言",
+    "time_last_week": "編碼時間/週",
+    "percentage": "總百分比"
   }
 }
