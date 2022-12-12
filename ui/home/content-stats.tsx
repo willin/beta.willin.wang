@@ -54,7 +54,9 @@ export function SiteStates({ stats, interactions }: { stats: ContentStatsProps[]
         </div>
         <div
           className='stat-desc'
-          dangerouslySetInnerHTML={{ __html: t('stats.locale_wordcount', { value: localeWordcount, locale: languages[lang].name }) }}></div>
+          dangerouslySetInnerHTML={{
+            __html: t('stats.locale_wordcount', { value: `${Math.ceil(localeWordcount / 100) / 10}k`, locale: languages[lang].name })
+          }}></div>
       </div>
 
       <div className='stat place-items-center basis-1/4'>
@@ -62,7 +64,9 @@ export function SiteStates({ stats, interactions }: { stats: ContentStatsProps[]
         <div className='stat-value'>
           <Counter from={0} to={totalViews} />
         </div>
-        <div className='stat-desc' dangerouslySetInnerHTML={{ __html: t('stats.locale_views', { value: localeViews, locale: languages[lang].name }) }}></div>
+        <div
+          className='stat-desc'
+          dangerouslySetInnerHTML={{ __html: t('stats.locale_views', { value: `${Math.ceil(localeViews / 100) / 10}k`, locale: languages[lang].name }) }}></div>
       </div>
 
       {/* <div className='stat place-items-center basis-1/4'>
