@@ -89,7 +89,7 @@ export function Stats({ stats }: { stats: Statistics }) {
             </thead>
             <tbody>
               {stats.programming
-                .filter(({ name }) => name !== 'Other')
+                .filter(({ name }) => !['Other', 'JSON', 'Text', 'CSV', 'sh'].includes(name))
                 .slice(0, stats.wakatime.length)
                 .map(({ name, value }) => (
                   <tr key={`p-${name as string}`}>

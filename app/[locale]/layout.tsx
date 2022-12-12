@@ -5,7 +5,6 @@ import { I18nClientProvider } from './providers';
 import { fallbackLng, supportedLanguages } from '@/i18n';
 import { MainDrawer } from './header-drawer';
 import { BackgroundImage } from './background';
-import { MainFooter } from './footer';
 
 export const revalidate = 600;
 
@@ -19,12 +18,7 @@ export default function RootLayout({ children, params }: { children: React.React
         <head />
         <body>
           <BackgroundImage />
-          <MainDrawer locale={lang}>
-            <main className='pt-20 w-full max-w-screen-2xl mx-auto' style={{ minHeight: 'calc(100vh - 75px)' }}>
-              {children}
-            </main>
-            <MainFooter />
-          </MainDrawer>
+          <MainDrawer locale={lang}>{children}</MainDrawer>
           <Bootstrap />
         </body>
       </html>

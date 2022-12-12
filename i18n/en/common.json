@@ -12,5 +12,17 @@
     "views": "Views: {{views}} ",
     "wordcount": "Wordcount: {{wordcount}}",
     "readtime": "Reading time: {{readtime}} mins"
+  },
+  "social": "Social Network",
+  "stats": {
+    "github_followers": "Github Followers",
+    "github_stars": "Github Stars",
+    "npm_downloads": "NPM Downloads",
+    "github_prs": "Github PRs",
+    "github_commits": "Github Commits",
+    "github_contributes": "Repos Contributes",
+    "language": "Language",
+    "time_last_week": "Coding Time / Week",
+    "percentage": "Total Percentage"
   }
 }

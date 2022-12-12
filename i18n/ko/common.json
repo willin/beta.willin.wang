@@ -12,5 +12,17 @@
     "views": "조회수: {{views}} ",
     "wordcount": "단어 수: {{wordcount}}",
     "readtime": "읽는 시간: {{readtime}} 분"
+  },
+  "social": "Social Network",
+  "stats": {
+    "github_followers": "Github Followers",
+    "github_stars": "Github Stars",
+    "npm_downloads": "NPM Downloads",
+    "github_prs": "Github PRs",
+    "github_commits": "Github Commits",
+    "github_contributes": "Repos Contributes",
+    "language": "Language",
+    "time_last_week": "Coding Time / Week",
+    "percentage": "Total Percentage"
   }
 }

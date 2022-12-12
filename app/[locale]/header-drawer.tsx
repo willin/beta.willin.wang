@@ -1,3 +1,4 @@
+import { MainFooter } from './footer';
 import { MainHeader } from './header';
 import { PageLinks } from './page-links';
 
@@ -7,7 +8,8 @@ export function MainDrawer({ children, locale }: { children: React.ReactNode; lo
       <input id='my-drawer-3' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content flex flex-col'>
         <MainHeader locale={locale} />
-        {children}
+        <main className='pt-20 w-full max-w-screen-2xl mx-auto'>{children}</main>
+        <MainFooter />
       </div>
       <div className='drawer-side'>
         <label htmlFor='my-drawer-3' className='drawer-overlay'></label>

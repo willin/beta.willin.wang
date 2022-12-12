@@ -12,5 +12,17 @@
     "views": "阅读量： {{views}} ",
     "wordcount": "文章字数： {{wordcount}}",
     "readtime": "阅读时间： {{readtime}} 分钟"
+  },
+  "social": "社交网络",
+  "stats": {
+    "github_followers": "Github 粉丝数",
+    "github_stars": "Github Stars",
+    "npm_downloads": "NPM 下载量",
+    "github_prs": "Github PRs",
+    "github_commits": "Github 提交数",
+    "github_contributes": "参与开源项目",
+    "language": "语言",
+    "time_last_week": "本周使用时间",
+    "percentage": "总使用占比"
   }
 }
