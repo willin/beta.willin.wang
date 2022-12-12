@@ -12,7 +12,7 @@ export function Counter({ from, to, placeholder = '0' }: { from?: number; to: nu
       duration: 1,
       onUpdate(value) {
         // @ts-ignore
-        node.textContent = value > 1000 ? `${Math.ceil(value / 100) / 10}k` : formatNumber(parseInt(value, 10));
+        node.textContent = value > 1000 ? `${(Math.ceil(value / 100) / 10).toFixed(1)}k` : formatNumber(parseInt(value, 10));
       }
     });
 

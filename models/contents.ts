@@ -106,3 +106,15 @@ export const getContentBySlug = cache(async (slug: string, type: ContentType, lo
     data?.find((content) => content.locale === fallbackLng);
   return content as Contents;
 });
+
+export const getContentsStatistics = cache(async () => {
+  const directus = await getDirectusClient();
+  const { data } = await directus.items('contents').readByQuery({
+    aggregate: {
+      count: '*',
+      sum: 'wordcount,readtime'
+    },
+    groupBy: ['locale']
+  });
+  return data;
+});

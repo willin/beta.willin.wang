@@ -17,6 +17,12 @@
   },
   "social": "社交网络",
   "stats": {
+    "total_contents": "总内容数",
+    "locale_contents": "<span class=\"font-bold text-primary-content\">{{value}}</span> {{locale}} 内容",
+    "total_wordcount": "内容总字数",
+    "locale_wordcount": "<span class=\"font-bold text-primary-content\">{{value}}</span> {{locale}} 字数",
+    "total_readtime": "估计阅读时间（小时）",
+    "locale_readtime": "<span class=\"font-bold text-primary-content\">{{value}}</span> 小时 {{locale}}",
     "github_followers": "Github 粉丝数",
     "github_stars": "Github Stars",
     "npm_downloads": "NPM 下载量",

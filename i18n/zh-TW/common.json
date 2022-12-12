@@ -17,6 +17,12 @@
   },
   "social": "社交網絡",
   "stats": {
+    "total_contents": "總內容",
+    "locale_contents": "<span class=\"font-bold text-primary-content\">{{value}}</span> {{locale}} 內容",
+    "total_wordcount": "總字數",
+    "locale_wordcount": "<span class=\"font-bold text-primary-content\">{{value}}</span> {{locale}} 字數",
+    "total_readtime": "總閱讀時間（小時）",
+    "locale_readtime": "<span class=\"font-bold text-primary-content\">{{value}}</span> 小時 {{locale}}",
     "github_followers": "Github 關注者",
     "github_stars": "Github Stars",
     "npm_downloads": "NPM 下載",

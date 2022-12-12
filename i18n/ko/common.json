@@ -17,6 +17,12 @@
   },
   "social": "Social Network",
   "stats": {
+    "total_contents": "Total Contents",
+    "locale_contents": "<span class=\"font-bold text-primary-content\">{{value}}</span> {{locale}} Contents",
+    "total_wordcount": "Total Words",
+    "locale_wordcount": "<span class=\"font-bold text-primary-content\">{{value}}</span> {{locale}} Words",
+    "total_readtime": "Total Reading Time (hrs)",
+    "locale_readtime": "<span class=\"font-bold text-primary-content\">{{value}}</span> hrs {{locale}}",
     "github_followers": "Github Followers",
     "github_stars": "Github Stars",
     "npm_downloads": "NPM Downloads",
