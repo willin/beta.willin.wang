@@ -23,11 +23,17 @@ export default function ContentPage(type: ContentType) {
     const Component = useMemo(() => useMdxComponent(code), [code]);
 
     return (
-      <div>
-        <h1>Hello</h1>
-        <article className='card glass prose dark:prose-invert max-w-none p-6 mb-6 text-primary-content'>
-          <Component />
-        </article>
+      <div className='flex justify-center'>
+        <div className='w-full max-w-screen-2xl'>
+          <div className='text-center py-10'>
+            <h1 className='text-5xl text-primary' style={{ textShadow: '0 0 3px rgba(0,0,0,0.25)' }}>
+              {content.title}
+            </h1>
+          </div>
+          <article className='card glass prose max-w-none p-6 mb-6'>
+            <Component />
+          </article>
+        </div>
       </div>
     );
   };
