@@ -62,3 +62,14 @@ export const updateContentInteract = async (slug: string, type: ContentType | In
     });
   }
 };
+
+export const getInteractionStatistics = cache(async () => {
+  const directus = await getDirectusClient();
+  const { data } = await directus.items('interactions').readByQuery({
+    aggregate: {
+      sum: 'views,likes'
+    },
+    groupBy: ['locale']
+  });
+  return data;
+});

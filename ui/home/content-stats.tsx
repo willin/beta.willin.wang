@@ -11,7 +11,15 @@ type ContentStatsProps = {
   };
 };
 
-export function ContentStats({ stats, locale }: { locale: string; stats: ContentStatsProps[] }) {
+type InteractionStatsProps = {
+  locale: string;
+  sum: {
+    views: number;
+    likes: number;
+  };
+};
+
+export function SiteStates({ stats, locale, interactions }: { locale: string; stats: ContentStatsProps[]; interactions: InteractionStatsProps[] }) {
   const { t } = useI18n();
   const totalContents = stats.reduce<number>((acc, item) => acc + item.count, 0);
   const localeContents = stats.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.count, 0);
@@ -19,11 +27,17 @@ export function ContentStats({ stats, locale }: { locale: string; stats: Content
   const localeWordcount = stats.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.sum.wordcount, 0);
   const totalReadtime = Math.ceil(stats.reduce<number>((acc, item) => acc + item.sum.readtime, 0) / 60);
   const localeReadtime = Math.ceil(stats.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.sum.readtime, 0) / 60);
+
+  const totalViews = interactions.reduce<number>((acc, item) => acc + item.sum.views, 0);
+  const localeViews = interactions.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.sum.views, 0);
+  // const totalLikes = interactions.reduce<number>((acc, item) => acc + item.sum.likes, 0);
+  // const localeLikes = interactions.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.sum.likes, 0);
+
   const lang = locale as 'zh-CN';
 
   return (
     <div className='stats stats-vertical lg:stats-horizontal shadow my-2 flex'>
-      <div className='stat place-items-center basis-1/3'>
+      <div className='stat place-items-center basis-1/4'>
         <div className='stat-title'>{t('stats.total_contents')}</div>
         <div className='stat-value'>
           <Counter from={0} to={totalContents} />
@@ -33,7 +47,7 @@ export function ContentStats({ stats, locale }: { locale: string; stats: Content
           dangerouslySetInnerHTML={{ __html: t('stats.locale_contents', { value: localeContents, locale: languages[lang].name }) }}></div>
       </div>
 
-      <div className='stat place-items-center basis-1/3'>
+      <div className='stat place-items-center basis-1/4'>
         <div className='stat-title'>{t('stats.total_wordcount')}</div>
         <div className='stat-value'>
           <Counter from={0} to={totalWordcount} />
@@ -43,7 +57,23 @@ export function ContentStats({ stats, locale }: { locale: string; stats: Content
           dangerouslySetInnerHTML={{ __html: t('stats.locale_wordcount', { value: localeWordcount, locale: languages[lang].name }) }}></div>
       </div>
 
-      <div className='stat place-items-center basis-1/3'>
+      <div className='stat place-items-center basis-1/4'>
+        <div className='stat-title'>{t('stats.total_views')}</div>
+        <div className='stat-value'>
+          <Counter from={0} to={totalViews} />
+        </div>
+        <div className='stat-desc' dangerouslySetInnerHTML={{ __html: t('stats.locale_views', { value: localeViews, locale: languages[lang].name }) }}></div>
+      </div>
+
+      {/* <div className='stat place-items-center basis-1/4'>
+        <div className='stat-title'>{t('stats.total_likes')}</div>
+        <div className='stat-value'>
+          <Counter from={0} to={totalLikes} />
+        </div>
+        <div className='stat-desc' dangerouslySetInnerHTML={{ __html: t('stats.locale_likes', { value: localeLikes, locale: languages[lang].name }) }}></div>
+      </div> */}
+
+      <div className='stat place-items-center basis-1/4'>
         <div className='stat-title'>{t('stats.total_readtime')}</div>
         <div className='stat-value'>
           <Counter from={0} to={totalReadtime} />
