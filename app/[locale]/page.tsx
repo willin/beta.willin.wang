@@ -17,7 +17,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
     <div className='text-center'>
       <OnlineStatus online={stats.online} coding={stats.coding} />
       <h1 className='py-2'>To be Willin is to be willing.</h1>
-      <SiteStates stats={contentStats as any} interactions={interactionStats as any} locale={locale} />
+      <SiteStates stats={contentStats as any} interactions={interactionStats as any} />
       <div>Top Views TBD</div>
       {/* @ts-ignore */}
       <Stats stats={stats} />

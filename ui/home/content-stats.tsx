@@ -19,8 +19,8 @@ type InteractionStatsProps = {
   };
 };
 
-export function SiteStates({ stats, locale, interactions }: { locale: string; stats: ContentStatsProps[]; interactions: InteractionStatsProps[] }) {
-  const { t } = useI18n();
+export function SiteStates({ stats, interactions }: { stats: ContentStatsProps[]; interactions: InteractionStatsProps[] }) {
+  const { t, locale } = useI18n();
   const totalContents = stats.reduce<number>((acc, item) => acc + item.count, 0);
   const localeContents = stats.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.count, 0);
   const totalWordcount = stats.reduce<number>((acc, item) => acc + item.sum.wordcount, 0);
@@ -33,7 +33,7 @@ export function SiteStates({ stats, locale, interactions }: { locale: string; st
   // const totalLikes = interactions.reduce<number>((acc, item) => acc + item.sum.likes, 0);
   // const localeLikes = interactions.filter((item) => item.locale === locale).reduce<number>((acc, item) => acc + item.sum.likes, 0);
 
-  const lang = locale as 'zh-CN';
+  const lang = locale() as 'zh-CN';
 
   return (
     <div className='stats stats-vertical lg:stats-horizontal shadow my-2 flex'>
