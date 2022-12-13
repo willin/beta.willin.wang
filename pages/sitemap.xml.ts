@@ -47,7 +47,7 @@ export const getContentList = async (type: ContentType, locale: string): Promise
     }
   });
 
-  return data as Contents[];
+  return data as any[] as Contents[];
 };
 
 function generateSiteMap(posts: { slug: string }[], pages: { slug: string }[], snippets: { slug: string }[]) {
