@@ -34,7 +34,7 @@ export const getContentViewsBatch = cache(async (slugs: string[], locale: string
 
 export const getContentViews = cache(async (slug: string, type: ContentType | InteractionType, locale: string) => {
   const data = await getContentViewsBatch([slug], locale, type);
-  return data?.[0];
+  return data?.[0] || { views: 1, likes: 0, slug, type, locale };
 });
 
 export const updateContentInteract = async (slug: string, type: ContentType | InteractionType, locale: string, interaction: 'like' | 'view' = 'view') => {

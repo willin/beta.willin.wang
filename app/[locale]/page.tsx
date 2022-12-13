@@ -11,7 +11,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   const contentStats = use(getContentsStatistics());
   const interactionStats = use(getInteractionStatistics());
   if (!stats || !contentStats || !interactionStats) return null;
-  use(updateContentInteract('index', InteractionType.OTHER, locale));
+  void updateContentInteract('index', InteractionType.OTHER, locale);
 
   return (
     <div className='text-center'>

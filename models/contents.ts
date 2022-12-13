@@ -75,6 +75,9 @@ export const getContentList = cache(async (type: ContentType, locale: string): P
       type: {
         _eq: type
       },
+      locale: {
+        _eq: locale
+      },
       status: {
         _eq: ContentStatus.PUBLISHED
       }
@@ -104,6 +107,7 @@ export const getContentBySlug = cache(async (slug: string, type: ContentType, lo
     data?.find((content) => content.locale === locale) ||
     data?.find((content) => content.locale === 'en') ||
     data?.find((content) => content.locale === fallbackLng);
+
   return content as Contents;
 });
 

@@ -11,7 +11,7 @@ export default function ContentList(type: ContentType) {
   return function Page({ params: { locale } }: { params: { locale: string } }) {
     const contents = use(getContentList(type, locale));
     if (!contents) return null;
-    use(updateContentInteract(type, InteractionType.OTHER, locale, 'view'));
+    void updateContentInteract(type, InteractionType.OTHER, locale, 'view');
     const tags = getTagsFromContents(contents);
 
     return (
@@ -37,7 +37,7 @@ export default function ContentList(type: ContentType) {
                 </figure> */}
                 <div className='card-body'>
                   <h2 className='card-title text-primary'>
-                    <LocaleLink href={`/posts/${content.slug}`}>{content.title}</LocaleLink>
+                    <LocaleLink href={`/${type}s/${content.slug}`}>{content.title}</LocaleLink>
                   </h2>
                   <div className='flex justify-start'>
                     <div className='badge badge-info mr-2 text-secondary'>
