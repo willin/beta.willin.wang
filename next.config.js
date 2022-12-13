@@ -10,3 +10,5 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+// vercel.json:
+// "regions": ["hnd1"]
